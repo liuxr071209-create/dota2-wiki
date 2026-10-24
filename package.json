@@ -1,0 +1,19 @@
+{
+  "name": "dota2-wiki-741f",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dota 2 7.41f 中文图鉴：英雄技能、物品数值、胜率与出装走势",
+  "scripts": {
+    "data:raw": "node scripts/fetch-raw.mjs",
+    "data:build": "node scripts/build-data.mjs",
+    "data:assets": "node scripts/fetch-assets.mjs",
+    "data:validate": "node scripts/validate-data.mjs",
+    "data": "npm run data:raw && npm run data:build && npm run data:assets && npm run data:validate",
+    "links": "node scripts/check-links.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

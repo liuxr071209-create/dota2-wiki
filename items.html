@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="description" content="Dota 2 7.41f 物品图鉴：完整价格、属性、主动效果、合成路径与适合英雄，支持分类和关键词搜索。">
+  <meta property="og:title" content="物品图鉴 · DOTA 2 WIKI 7.41f">
+  <meta property="og:description" content="全部物品的价格、属性、主动效果与合成路径。">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <title>物品图鉴 · DOTA 2 WIKI 7.41f</title>
+</head>
+<body data-page="items">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="page">
+    <section class="page-hero">
+      <span class="eyebrow">Item Index · Patch 7.41f</span>
+      <h1>物品图鉴</h1>
+      <p>价格、属性、主动与被动效果、合成组件、后续升级，以及这件装备在公开对局中最常出现的英雄。</p>
+      <div class="page-hero-meta">
+        <span><strong id="items-total">—</strong> 件物品</span>
+        <span><strong>7</strong> 个分类</span>
+        <span>数值对齐 <strong>7.41f</strong></span>
+        <span>更新于 <strong>2026-10-24</strong></span>
+      </div>
+    </section>
+
+    <section class="filter-bar" aria-label="物品筛选">
+      <div class="filter-top">
+        <label class="filter-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="item-search" placeholder="搜索物品名称、英文名或类型…" autocomplete="off">
+          <button class="search-clear" type="button" id="item-search-clear" aria-label="清空搜索" hidden>×</button>
+        </label>
+        <select class="filter-select" id="item-sort" aria-label="排序方式">
+          <option value="name">按名称排序</option>
+          <option value="cost">按价格从高到低</option>
+          <option value="costAsc">按价格从低到高</option>
+          <option value="category">按分类排序</option>
+        </select>
+      </div>
+      <div class="filter-row" id="filter-category"><span class="filter-label">分类</span></div>
+      <div class="filter-summary">显示 <strong id="item-count">—</strong> 件物品</div>
+    </section>
+
+    <section class="section" style="margin-top:22px">
+      <div class="item-grid" id="items-grid"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+  <script type="module" src="js/items.js"></script>
+</body>
+</html>

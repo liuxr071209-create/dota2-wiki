@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="description" content="Dota 2 7.41f 中文图鉴：127 位英雄的技能、天赋与具体数值，全部物品数据，以及基于公开对局的胜率走势、出装与常见位置。">
+  <meta property="og:title" content="DOTA 2 WIKI · 7.41f 中文图鉴">
+  <meta property="og:description" content="英雄技能、物品数值、胜率走势与出装攻略，一页查完。">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/heroes/cards/antimage.png">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <title>DOTA 2 WIKI · 7.41f 中文英雄与物品图鉴</title>
+</head>
+<body data-page="home">
+  <header id="site-header" class="site-header"></header>
+
+  <main>
+    <section class="home-hero">
+      <div class="home-hero-bg" aria-hidden="true">
+        <img src="assets/heroes/cards/antimage.png" alt="">
+        <img src="assets/heroes/cards/invoker.png" alt="">
+        <img src="assets/heroes/cards/juggernaut.png" alt="">
+        <img src="assets/heroes/cards/crystal_maiden.png" alt="">
+        <img src="assets/heroes/cards/axe.png" alt="">
+        <img src="assets/heroes/cards/spectre.png" alt="">
+      </div>
+      <div class="home-hero-inner">
+        <div class="home-hero-copy">
+          <span class="eyebrow">Dota 2 · Patch 7.41f · 中文图鉴</span>
+          <h1>知识，<br><span class="gold">就是力量。</span></h1>
+          <p class="home-hero-sub">
+            127 位英雄的技能、天赋与逐级数值，全部物品的合成与属性，
+            以及来自公开对局的胜率走势、出装顺序和版本常见位置。
+            所有数值对齐 7.41f。
+          </p>
+
+          <div class="home-search" role="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+            <input type="search" id="home-search" placeholder="搜索英雄或物品，例如「敌法师」「闪烁匕首」" autocomplete="off" aria-label="搜索英雄或物品">
+            <button type="button" data-open-search>全部结果</button>
+          </div>
+          <div class="home-search-results" id="home-search-results"></div>
+
+          <div class="hero-actions home-hero-actions">
+            <a class="button" href="heroes.html">浏览英雄图鉴
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a class="button ghost" href="items.html">查询物品数值</a>
+          </div>
+
+          <div class="hero-stat-row">
+            <div><strong>127</strong><span>英雄</span></div>
+            <div><strong id="home-item-count">—</strong><span>物品</span></div>
+            <div><strong>7.41f</strong><span>数据版本</span></div>
+          </div>
+        </div>
+
+        <aside class="home-side">
+          <div class="side-card">
+            <div class="side-card-head"><h2>版本胜率榜</h2><span>PUB · 近期</span></div>
+            <div id="home-side-rank">
+              <div class="side-rank"><span class="side-rank-index">—</span><div class="side-rank-main"><strong>正在读取版本数据…</strong><em>OpenDota</em></div></div>
+            </div>
+            <div class="side-card-foot"><span>最低样本 20,000 场</span><a href="meta.html">完整环境 →</a></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="page">
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Meta Watch</span>
+            <h2>版本焦点</h2>
+            <p>结合 7.41f 改动与近期公开对局胜率，挑出当前最值得关注的英雄。</p>
+          </div>
+          <a class="section-link" href="meta.html">查看环境全貌
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="feature-grid" id="featured-grid"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Win Rate &amp; Presence</span>
+            <h2>胜率风向</h2>
+            <p>胜率来自 OpenDota 近期公开对局；走势为最近七个统计窗口的胜率变化。低样本英雄不进入榜单。</p>
+          </div>
+          <a class="section-link" href="meta.html">完整榜单
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="trend-columns">
+          <div class="panel">
+            <div class="panel-inner" style="padding:0">
+              <div class="table-wrap">
+                <table class="data-table" id="home-leaderboard"></table>
+              </div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-inner" style="padding:0">
+              <div class="table-wrap">
+                <table class="data-table" id="home-pick"></table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Hero Index</span>
+            <h2>英雄图鉴</h2>
+            <p>按力量、敏捷、智力与全能分类，查看技能数值、天赋、出装和克制关系。</p>
+          </div>
+          <a class="section-link" href="heroes.html">全部 127 位英雄
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="hero-grid" id="home-heroes"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Item Index</span>
+            <h2>物品速查</h2>
+            <p>从闪烁匕首到中立物品，完整收录价格、属性、主动效果与合成路径。</p>
+          </div>
+          <a class="section-link" href="items.html">全部物品
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="item-grid" id="home-items"></div>
+      </section>
+
+      <section class="section">
+        <div class="patch-strip">
+          <div class="patch-strip-left">
+            <div class="version">7.41f</div>
+            <h3>平衡性更新</h3>
+            <p>2026 年 9 月 16 日 · 官方补丁说明中文整理</p>
+            <a class="section-link" href="patch.html" style="margin-top:14px">阅读完整改动
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+          <div class="patch-highlight-list" id="home-patch-highlights"></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="quick-links">
+          <a class="quick-link" href="heroes.html">
+            <span class="q-index">01 / HEROES</span><span class="q-arrow">↗</span>
+            <h3>英雄图鉴</h3><p>技能、天赋、数值、出装与克制</p>
+          </a>
+          <a class="quick-link" href="items.html">
+            <span class="q-index">02 / ITEMS</span><span class="q-arrow">↗</span>
+            <h3>物品图鉴</h3><p>属性、合成路径与适合英雄</p>
+          </a>
+          <a class="quick-link" href="meta.html">
+            <span class="q-index">03 / META</span><span class="q-arrow">↗</span>
+            <h3>环境数据</h3><p>胜率、登场率与分路热门</p>
+          </a>
+          <a class="quick-link" href="patch.html">
+            <span class="q-index">04 / PATCH</span><span class="q-arrow">↗</span>
+            <h3>7.41f 更新</h3><p>英雄与物品改动全收录</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+  <script type="module" src="js/home.js"></script>
+</body>
+</html>

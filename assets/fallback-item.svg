@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <rect width="120" height="120" rx="4" fill="#0d0f12"/>
+  <g fill="none" stroke="#5a5142" stroke-width="1.5">
+    <rect x="24" y="24" width="72" height="72" transform="rotate(45 60 60)"/>
+    <circle cx="60" cy="60" r="20"/>
+    <path d="M60 34v52M34 60h52"/>
+  </g>
+  <text x="60" y="106" text-anchor="middle" fill="#5a5142" font-family="Georgia,serif" font-size="9" letter-spacing="2">DOTA 2</text>
+</svg>

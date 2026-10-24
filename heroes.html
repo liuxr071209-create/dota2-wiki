@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="description" content="Dota 2 7.41f 英雄图鉴：按属性、定位与胜率筛选全部 127 位英雄，查看技能、天赋、出装和常见位置。">
+  <meta property="og:title" content="英雄图鉴 · DOTA 2 WIKI 7.41f">
+  <meta property="og:description" content="全部 127 位英雄的技能、数值、胜率、出装与克制关系。">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <title>英雄图鉴 · DOTA 2 WIKI 7.41f</title>
+</head>
+<body data-page="heroes">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="page">
+    <section class="page-hero">
+      <span class="eyebrow">Hero Index · Patch 7.41f</span>
+      <h1>英雄图鉴</h1>
+      <p>从技能逐级数值到天赋树、从出门装到六神装，再到近期胜率与克制关系。所有英雄数据对齐 7.41f。</p>
+      <div class="page-hero-meta">
+        <span><strong>127</strong> 位英雄</span>
+        <span><strong>4</strong> 种属性</span>
+        <span><strong>OpenDota</strong> 公开对局</span>
+        <span>更新于 <strong>2026-10-24</strong></span>
+      </div>
+    </section>
+
+    <section class="filter-bar" aria-label="英雄筛选">
+      <div class="filter-top">
+        <label class="filter-search">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input type="search" id="hero-search" placeholder="搜索英雄中文名、英文名或定位…" autocomplete="off">
+          <button class="search-clear" type="button" id="hero-search-clear" aria-label="清空搜索" hidden>×</button>
+        </label>
+        <select class="filter-select" id="hero-sort" aria-label="排序方式">
+          <option value="winrate">按胜率排序</option>
+          <option value="pickrate">按登场率排序</option>
+          <option value="name">按名称排序</option>
+          <option value="complexity">按难度排序</option>
+        </select>
+      </div>
+      <div class="filter-row" id="filter-attr"><span class="filter-label">属性</span></div>
+      <div class="filter-row" id="filter-role"><span class="filter-label">定位</span></div>
+      <div class="filter-row" id="filter-pos"><span class="filter-label">位置</span></div>
+      <div class="filter-summary">显示 <strong id="hero-count">—</strong> 位英雄</div>
+    </section>
+
+    <section class="section" style="margin-top:22px">
+      <div class="hero-grid" id="heroes-grid"></div>
+    </section>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+  <script type="module" src="js/heroes.js"></script>
+</body>
+</html>

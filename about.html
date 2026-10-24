@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0a0b0d">
+  <meta name="description" content="关于 DOTA 2 WIKI 7.41f：数据来源、统计口径、版权说明与 GitHub Pages 部署方式。">
+  <meta property="og:title" content="关于与数据来源 · DOTA 2 WIKI 7.41f">
+  <meta property="og:description" content="数据来源、统计口径与版权说明。">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <title>关于与数据来源 · DOTA 2 WIKI 7.41f</title>
+</head>
+<body data-page="about">
+  <header id="site-header" class="site-header"></header>
+
+  <main class="page-narrow">
+    <section class="page-hero">
+      <span class="eyebrow">About This Wiki</span>
+      <h1>关于本站</h1>
+      <p>一个为 7.41f 版本准备的中文 Dota 2 图鉴。目标很简单：把英雄、技能、物品和版本数据放在同一个安静、快速、可离线部署的页面里。</p>
+      <div class="page-hero-meta">
+        <span>版本 <strong>7.41f</strong></span>
+        <span>数据更新 <strong>2026-10-24</strong></span>
+        <span>纯静态 <strong>GitHub Pages Ready</strong></span>
+        <span>无追踪 <strong>No Analytics</strong></span>
+      </div>
+    </section>
+
+    <div class="about-grid">
+      <div class="prose">
+        <h2>这个站有什么</h2>
+        <p>英雄页包含 1 级基础属性、技能逐级数值、神杖与魔晶升级、10/15/20/25 级天赋、近期胜率与七日走势、分阶段出装热度和克制关系。物品页包含价格、分类、主动与被动效果、具体数值、合成组件、后续升级，以及近期最常出这件装备的英雄。</p>
+        <p>英雄的“常见位置”是编辑整理，用于图鉴筛选和快速理解，不是赛事位置统计。真正带样本的统计只有胜率、登场率、出装和克制，它们全部来自 OpenDota。</p>
+
+        <h2>版本与数据口径</h2>
+        <ul>
+          <li><strong>数值：</strong>Valve 官方 Dota 2 数据接口（英雄、技能、物品、天赋），数据版本 7.41f。</li>
+          <li><strong>胜率 / 登场率：</strong>OpenDota <code>heroStats</code>，公开对局样本约 383 万场。登场率按“每场出现率”计算，因此所有英雄相加约为 1000%。</li>
+          <li><strong>走势：</strong>OpenDota 最近七个统计窗口的胜率，末位窗口可能尚未完整，低样本英雄的折线波动会比较大。</li>
+          <li><strong>出装：</strong>OpenDota <code>itemPopularity</code> 的出门 / 前期 / 中期 / 后期四阶段，按该阶段最高选取次数归一化为热度条。</li>
+          <li><strong>克制：</strong>OpenDota <code>matchups</code>，只保留至少 25 场对局的英雄；样本较小时请谨慎解读。</li>
+          <li><strong>补丁说明：</strong>Valve 官方 7.41f 更新页，中文文本参考官方中文与社区整理，按官方条目校对。</li>
+        </ul>
+
+        <h2>为什么是静态站</h2>
+        <p>整站没有后端、没有数据库、没有构建步骤。HTML、CSS、JSON 和图片就是全部内容，直接放到 GitHub Pages、Cloudflare Pages 或任意静态服务器即可。所有路径都是相对路径，仓库放在子路径下也能正常打开。</p>
+        <p>重新抓取数据只需要 Node.js 20+：<code>npm run data</code>。脚本会从 Valve 数据接口、OpenDota 与 Steam CDN 拉取并重新生成 <code>data/</code>，然后下载素材到 <code>assets/</code>。</p>
+
+        <h2>版权与使用</h2>
+        <p>这是一个非官方、非商业的粉丝项目，与 Valve Corporation 没有关联，也未获得其背书。Dota 2、英雄、物品、技能名称、图像与音频等素材版权归 Valve Corporation 所有。本站对素材的使用遵循 Valve 的粉丝内容指引；如果你要再利用本站内容，请同时遵守 Valve 的相关条款。</p>
+        <p>本站自己编写的代码以 MIT 许可证发布；Valve 的数据与图像不包含在 MIT 授权范围内。完整说明见仓库中的 <code>LICENSE</code> 与 <code>NOTICE.md</code>。</p>
+
+        <h2>反馈与更新</h2>
+        <p>发现数值错误、图片缺失或翻译问题，欢迎在仓库提交 issue。版本更新后，维护者只需要重新运行数据脚本并检查差异。</p>
+      </div>
+
+      <div>
+        <div class="source-list">
+          <div class="source-row"><div><strong>Valve Dota 2 数据接口</strong><span>英雄、技能、物品、天赋与官方补丁</span></div><a href="https://www.dota2.com/datafeed/herolist?language=schinese" target="_blank" rel="noopener">打开 ↗</a></div>
+          <div class="source-row"><div><strong>7.41f 官方更新</strong><span>2026-09-16 · Valve</span></div><a href="https://www.dota2.com/newsentry/677383425371407609" target="_blank" rel="noopener">原文 ↗</a></div>
+          <div class="source-row"><div><strong>OpenDota</strong><span>公开对局胜率、出装与对位</span></div><a href="https://www.opendota.com/" target="_blank" rel="noopener">opendota.com ↗</a></div>
+          <div class="source-row"><div><strong>dotaconstants</strong><span>技能图标名、物品组件与常量</span></div><a href="https://github.com/odota/dotaconstants" target="_blank" rel="noopener">GitHub ↗</a></div>
+          <div class="source-row"><div><strong>7.41f 中文整理</strong><span>17173 · 条目校对参考</span></div><a href="https://news.17173.com/content/09162026/160958832.shtml" target="_blank" rel="noopener">17173 ↗</a></div>
+          <div class="source-row"><div><strong>Steam CDN</strong><span>英雄头像、立绘、技能与物品图像</span></div><a href="https://cdn.cloudflare.steamstatic.com/apps/dota2/images/dota_react/heroes/antimage.png" target="_blank" rel="noopener">CDN ↗</a></div>
+          <div class="source-row"><div><strong>Dota 2 官方</strong><span>游戏本体与版本公告</span></div><a href="https://www.dota2.com/" target="_blank" rel="noopener">dota2.com ↗</a></div>
+        </div>
+
+        <div class="prose" style="margin-top:26px">
+          <h2>GitHub Pages</h2>
+          <p>仓库根目录已经包含 <code>.nojekyll</code> 与 Pages 工作流。推送到 <code>main</code> 后，在仓库 Settings → Pages 选择 GitHub Actions，工作流会发布整站。也可以直接把仓库设为 “Deploy from a branch” 的根目录。</p>
+          <p>不要用 <code>file://</code> 直接打开 HTML，浏览器会拦截 JSON 读取。本地预览请运行 <code>npm run serve</code>，然后访问终端输出的地址。</p>
+        </div>
+
+        <div class="data-note" style="margin-top:26px">
+          <strong>免责声明：</strong>本站是非官方粉丝作品。Dota 2 及相关素材 © Valve Corporation。数据与图片仅用于信息展示，不构成商业用途或官方背书。
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer id="site-footer" class="site-footer"></footer>
+  <script type="module">
+    import { initChrome } from './js/core.js';
+    initChrome();
+  </script>
+</body>
+</html>
